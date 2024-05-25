@@ -30,6 +30,11 @@ export default function Index() {
           </a>
         </li>
       </ul>
+      <h2>
+        <ul>
+          <li>show deploy output</li>
+        </ul>
+      </h2>
     </div>
   );
 }
