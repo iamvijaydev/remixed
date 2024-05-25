@@ -32,6 +32,7 @@ export default function Index() {
       </ul>
       <h2>
         <ul>
+          <li>Remove incorrect branch</li>
           <li>show deploy output</li>
         </ul>
       </h2>
