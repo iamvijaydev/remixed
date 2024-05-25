@@ -13,14 +13,13 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v4
 
-      - name: 'Build'
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node_version: 20
-      - run:
-          npm ci
-          npm run test
-          npm run build
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run test
+      - run: npm run build
 
       - name: 'Deploy'
         uses: cloudflare/wrangler-action@v3
