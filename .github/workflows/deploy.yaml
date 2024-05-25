@@ -30,6 +30,9 @@ jobs:
           command: pages deploy ./build/client --project-name=remixed
 
       - name: 'Output'
+        env:
+          CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
         run: |
-          echo "CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}"
-          echo "DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}"
+          echo $CMD_OUTPUT
+          echo $DEPLOYMENT_URL
