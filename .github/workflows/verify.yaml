@@ -5,13 +5,13 @@ on:
     branches: [develop]
 
 jobs:
-  deploy:
-    environment: test
-    permissions:
-      actions: read
-      contents: read
-      deployments: write
-      pull-requests: write
+  verify:
+    # environment: test
+    # permissions:
+    #   actions: read
+    #   contents: read
+    #   deployments: write
+    #   pull-requests: write
     runs-on: ubuntu-latest
 
     steps:
