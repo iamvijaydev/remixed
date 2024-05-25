@@ -14,17 +14,30 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Use Node 20
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run test
-      - run: npm run build
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Test
+        run: pnpm run test
+
+      - name: Build
+        run: pnpm run test
 
       - name: 'Deploy'
         uses: cloudflare/wrangler-action@v3
         with:
+          packageManager: pnpm
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy ./build/client --project-name=remixed

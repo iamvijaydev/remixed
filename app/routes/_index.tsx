@@ -32,6 +32,7 @@ export default function Index() {
       </ul>
       <h2>
         <ul>
+          <li>Switch to pnpm</li>
           <li>Remove incorrect branch</li>
           <li>show deploy output</li>
         </ul>
